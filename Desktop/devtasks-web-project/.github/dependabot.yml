@@ -1,0 +1,13 @@
+version: 2
+updates:
+  # 1. Configuració per a les dependències del projecte (npm / NodeJS)
+  - package-ecosystem: "npm"
+    directory: "/" # Revisa el package.json de la arrel
+    schedule:
+      interval: "daily" # Comprovació diària d'actualitzacions
+
+  # 2. Configuració per a les dependències de les GitHub Actions utilitzades
+  - package-ecosystem: "github-actions"
+    directory: "/" # Revisa els fitxers .yml de la carpeta workflows
+    schedule:
+      interval: "daily" # Comprovació diària de noves versions d'actions
