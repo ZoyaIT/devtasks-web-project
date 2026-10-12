@@ -3,7 +3,7 @@ function createTask(title, description ="") {
     id: Date.now(),
     title:title.trim(),
     description :description.trim(),
-    completed: false
+    completed: true
   };
 }
 
