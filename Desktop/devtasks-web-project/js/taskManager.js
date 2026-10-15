@@ -28,7 +28,6 @@ function getTaskStats(tasks) {
   };
 }
 
-// Exportamos las funciones para Node.js (Tests) y el navegador
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { createTask, isValidTask, filterTasks, getTaskStats };
 }
