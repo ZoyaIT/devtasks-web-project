@@ -8,7 +8,7 @@ El projecte DevTasks és una aplicació web senzilla de gestió de tasques. L'ap
 • Persistir les dades mitjançant localStorage. 
 El projecte s'ha desenvolupat utilitzant: 
 • HTML 
-• CSS 
+• CSS  
 • JavaScript 
 • npm 
 • Vitest 
