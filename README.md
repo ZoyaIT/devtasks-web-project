@@ -1,3 +1,4 @@
+ main
 ------------------DevTasks------------------- 
 El projecte DevTasks és una aplicació web senzilla de gestió de tasques. L'aplicació permet: 
 • Crear tasques
@@ -56,4 +57,7 @@ https://zoyait.github.io/devtasks-web-project
 • Segmentació de col·leccions: Confirma la precisió matemàtica dels filtres en aïllar vectors de tasques completades dels elements marcats com a pendents. 
 • Integritat de mètriques: Assegura que els comptadors globals facin sumes i restes correctes sobre els conjunts de dades segons l'estat dels seus components. 
 • Blindatge davant d'excepcions: Testeja casos límit per blindar el sistema davant de comportaments anòmals com el processament de llistes de dades buides o paràmetres desconeguts.
+=======
+devtasks-web-project
+feature/copilot-code-review
 
