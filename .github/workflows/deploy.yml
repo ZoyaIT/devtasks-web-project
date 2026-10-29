@@ -1,0 +1,44 @@
+name: DevTasks Continuous Deployment
+
+# 1. El workflow se ejecuta automáticamente SOLO cuando hay un push (merge) en main
+on:
+  push:
+    branches: [ main ]
+
+# 2. Permisos necesarios para que GitHub Actions pueda publicar en tu sección de Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita que se ejecuten despliegues duplicados al mismo tiempo
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    # 3. Descargar el código definitivo fusionado en main
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    # 4. Configurar internamente los recursos de GitHub Pages
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    # 5. Empaquetar los archivos estáticos de tu proyecto (HTML, CSS, JS)
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.' # Sube la raíz del proyecto (donde está index.html)
+
+    # 6. Publicar el proyecto de forma automática en la URL pública
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      

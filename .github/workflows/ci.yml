@@ -1,0 +1,30 @@
+name: DevTasks Continuous Integration
+
+# 1. El workflow se ejecuta cuando se hace una Pull Request hacia main
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 2. Obtener el código del repositorio
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    # 3. Preparar el entorno de Node.js
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    # 4. Instalar las dependencias del proyecto de forma limpia
+    - name: Install dependencies
+      run: npm ci
+
+    # 5. Ejecutar los tests automáticos
+    - name: Run unit tests with Jest
+      run: npm test
